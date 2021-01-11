@@ -20,7 +20,7 @@
     "test:rebuild": "yarn clean:node_modules && yarn && yarn build"
   },
   "author": {
-    "name": "Nick Felker, based on work by Sebastian Lenz"
+    "name": "Liu Shukun based on Nick Felker, based on work by Sebastian Lenz"
   },
   "license": "Apache-2.0",
   "engines": {
@@ -51,9 +51,6 @@
     "minimist": ">=1.2.3"
   },
   "keywords": [
-    "typescript",
-    "documentation",
-    "generator",
     "typedocplugin"
   ],
   "repository": {
