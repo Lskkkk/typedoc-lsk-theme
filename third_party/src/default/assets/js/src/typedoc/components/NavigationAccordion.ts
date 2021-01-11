@@ -166,14 +166,17 @@ function renderHTMLRecursive(obj: object, package = '', spacing = '&emsp;'):
       ) {
         href = '../' + href
       }
-      // Check if the user is currently on this page. If so, bold this item.
-      const pageName = href + obj[key]
-      // Remove any "../" to get a valid page file.
-      const pageNamePath = `${pageName.replace('../', '')}.html`
-      if (window.location.href.indexOf(pageNamePath) > -1) {
-        html += `<a class="selected" href='${pageName}.html'>${key}</a>`
+      // Check if the user is currently on this page. If so, bold this item.11
+      const pageHref = href + obj[key]
+      const currentModulePath = (window.location.href.match("modules\/.*\.html") || [])[0]
+      let keyDom = `<span>${key}</span>`
+      if (key.indexOf('/') > -1) {
+        keyDom = `<span style="margin-left: 20px;">${key.replace('/', '')}</span>`
+      }
+      if (currentModulePath === pageHref.replace('../', '')) {
+        html += `<a class="selected" href='${pageHref}'>${keyDom}</a>`
       } else {
-        html += `<a href='${pageName}.html'>${key}</a>`
+        html += `<a href='${pageHref}'>${keyDom}</a>`
       }
     }
   }
